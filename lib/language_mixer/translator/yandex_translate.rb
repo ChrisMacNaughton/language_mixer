@@ -1,9 +1,6 @@
 require 'yandex-translator'
 module LanguageMixer::Translator
-  class YandexTranslate
-    attr_reader :client
-
-    attr_accessor :source_language, :target_language
+  class YandexTranslate < Translate
     
     def initialize(token)
       @client = Yandex::Translator.new(token)

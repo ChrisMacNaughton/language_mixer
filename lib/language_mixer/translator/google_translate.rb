@@ -1,12 +1,8 @@
 require 'google_translate'
 
 module LanguageMixer::Translator
-  class GoogleTranslate
+  class GoogleTranslate < Translate
 
-    attr_reader :client
-
-    attr_accessor :source_language, :target_language
-    
     def initialize
       @client = ::GoogleTranslate.new
     end

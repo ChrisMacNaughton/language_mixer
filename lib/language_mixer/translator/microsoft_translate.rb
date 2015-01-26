@@ -1,11 +1,7 @@
 require 'bing_translator'
 
 module LanguageMixer::Translator
-  class MicrosoftTranslate
-    
-    attr_reader :client
-
-    attr_accessor :source_language, :target_language
+  class MicrosoftTranslate < Translate
     
     def initialize(client_id, client_secret)
       @client = BingTranslator.new(client_id, client_secret)
