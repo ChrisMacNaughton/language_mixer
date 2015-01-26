@@ -7,10 +7,9 @@ module LanguageMixer::Translator
       @client = ::GoogleTranslate.new
     end
 
-    def translate(text)
-      raise("Missing 'from' language") unless source_language
-      raise("Missing 'to' language") unless target_language
-      raise("Missing text for translation") unless text
+    private
+
+    def call_translate(text)
       res = client.translate source_language, target_language, text
       res[0][0][0]
     end

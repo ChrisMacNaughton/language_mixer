@@ -6,10 +6,9 @@ module LanguageMixer::Translator
       @client = Yandex::Translator.new(token)
     end
 
-    def translate(text)
-      raise("Missing 'from' language") unless source_language
-      raise("Missing 'to' language") unless target_language
-      raise("Missing text for translation") unless text
+    private
+
+    def call_translate(text)
       client.translate text, from: source_language, to: target_language
     end
 
