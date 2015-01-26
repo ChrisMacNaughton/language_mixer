@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "bing_translator"
   spec.add_dependency "google-translate"
+  spec.add_dependency "yandex-translator"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
