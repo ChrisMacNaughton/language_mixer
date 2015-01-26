@@ -18,8 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "bing_translator"
+  spec.add_dependency "google-translate"
+
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependancy "codeclimate-test-reporter"
+  spec.add_development_dependency "codeclimate-test-reporter"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
 end
