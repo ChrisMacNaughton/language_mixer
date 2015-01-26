@@ -1,8 +1,6 @@
 # LanguageMixer
 
-[![Build Status](https://travis-ci.org/ChrisMacNaughton/language_mixer.svg?branch=master)](https://travis-ci.org/ChrisMacNaughton/language_mixer)
-
-[![Code Climate](https://codeclimate.com/github/ChrisMacNaughton/language_mixer/badges/gpa.svg)](https://codeclimate.com/github/ChrisMacNaughton/language_mixer)
+[![Build Status](https://travis-ci.org/ChrisMacNaughton/language_mixer.svg?branch=master)](https://travis-ci.org/ChrisMacNaughton/language_mixer) [![Code Climate](https://codeclimate.com/github/ChrisMacNaughton/language_mixer/badges/gpa.svg)](https://codeclimate.com/github/ChrisMacNaughton/language_mixer)
 
 LanguageMixer is a Gem to mask the user's primary language by translating into and out of other languages. It uses multiple translating backends (Google, Microsoft, Yandex) as available to reduce risk of the provider having a full transcript.
 
