@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://translate.google.com/translate_a/single?client=t&dt=sw&hl=en&ie=UTF-8&oe=UTF-8&prev=btn&q=Hello%20World!&rom=1&sl=en&ssel=0&tl=es&tsel=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Ruby/2.0.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jan 2015 03:26:54 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      Content-Disposition:
+      - attachment; filename="f.txt"
+      Server:
+      - HTTP server (unknown)
+      X-Xss-Protection:
+      - 1; mode=block
+      Alternate-Protocol:
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
+      Set-Cookie:
+      - PREF=ID=34da078c6208429f:TM=1422242814:LM=1422242814:S=2QbP1Zl_w_ViXlWn; expires=Wed,
+        25-Jan-2017 03:26:54 GMT; path=/; domain=.google.com
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '[[["Hola Mundo!","Hello World!"]],,"en",,,[["Hello World !",1,[["Hola
+        Mundo!",1000,true,false],["Hola mundo",0,true,false]],[[0,12]],"Hello World!",0,3]],0.035999887,,[["en"],,[0.035999887]],,,,,,[["World"]]]'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 03:26:54 GMT
+- request:
+    method: post
+    uri: https://translate.yandex.net/api/v1.5/tr.json/translate
+    body:
+      encoding: UTF-8
+      string: text=I'm%20having%20fun&lang=en-es&key=test1234
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.4.4
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '59'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=120
+      X-Content-Type-Options:
+      - nosniff
+      Date:
+      - Mon, 26 Jan 2015 03:26:54 GMT
+    body:
+      encoding: UTF-8
+      string: '{"code":200,"lang":"en-es","text":["Me estoy divirtiendo"]}'
+    http_version: 
+  recorded_at: Mon, 26 Jan 2015 03:26:54 GMT
+recorded_with: VCR 2.9.0
