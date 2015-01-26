@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = LanguageMixer::VERSION
   spec.authors       = ["Chris MacNaughton"]
   spec.email         = ["chmacnaughton@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = %q{LanguageMixer is a language anonymiser to allow users to disguise their native language}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"
