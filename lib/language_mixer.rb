@@ -38,8 +38,11 @@ module LanguageMixer
         mixer = LanguageMixer::Mixer.new
         mixer.source_language = target_language
       end
-
-      ::File.open(output, 'w+'){|f| f.write text }
+      if output
+        ::File.open(output, 'w+'){|f| f.write text }
+      else
+        text
+      end
     end
   end
 

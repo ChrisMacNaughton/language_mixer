@@ -6,7 +6,7 @@ module LanguageMixer
       @file = LanguageMixer::File.new('spec/fixtures/test_file.md')
     end
     it "parses configuration" do
-      yaml_config = {"source_language"=>"english", "target_language"=>["german", "spanish", "russian", "english"]}
+      yaml_config = {"source_language"=>"en", "target_language"=>["fr", "en", "es", "en", "de", "en"]}
       expect(@file.yaml_settings).to eq(yaml_config)
     end
 

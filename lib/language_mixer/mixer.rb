@@ -13,7 +13,7 @@ class LanguageMixer::Mixer
       api.source_language = source_language
       api.target_language = target_language
     end
-    # binding.pry
+    
     prepared_text.each do |line|
       tries = 0
       begin
@@ -49,7 +49,11 @@ class LanguageMixer::Mixer
   end
 
   def prepared_text
-    text2 = text.gsub("\n", '|||')
+    text2 = unless seperator == "\n"
+      text.gsub("\n", '|||')
+    else
+      text
+    end
     text2.split(seperator)
   end
 

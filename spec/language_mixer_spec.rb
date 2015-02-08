@@ -31,12 +31,14 @@ describe LanguageMixer do
   describe ".translate" do
     before :each do
       LanguageMixer.reset
-      LanguageMixer.configure do |config|
-        config.yandex_api_key = 'test1234'
-      end
     end
 
-    it "can successfully translate a file"
+    it "can successfully translate a file" do
+      file = LanguageMixer::File.new('spec/fixtures/test_file_2.md')
+      file_contents = file.text
+      result = LanguageMixer.translate('spec/fixtures/test_file_2.md', false)
+      expect(result).not_to eq(file_contents)
+    end
   end
  
 end
