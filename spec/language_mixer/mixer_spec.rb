@@ -26,7 +26,7 @@ module LanguageMixer
       VCR.use_cassette('multi') do
         expect(@mixer.translate).to eq("Hola Mundo!\nMe estoy divirtiendo")
 
-        expect(@mixer.requests.count).to eq(2)
+        expect(@mixer.request_count).to eq(2)
       end
     end
 

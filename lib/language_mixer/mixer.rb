@@ -22,6 +22,12 @@ class LanguageMixer::Mixer
     text_parts.join(seperator)
   end
 
+  def request_count
+    requests.count
+  end
+
+  private
+
   def seperator
     @seperator ||= "\n"
   end
@@ -37,8 +43,6 @@ class LanguageMixer::Mixer
   def requests
     @requests ||= Hash.new(0)
   end
-
-  private
 
   def add_text_part(val)
     text_parts << val
