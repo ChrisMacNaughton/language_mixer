@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'language_mixer'
+
+LanguageMixer::Cli::Application.start(ARGV)

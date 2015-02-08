@@ -1,3 +1,4 @@
+require 'pry'
 class LanguageMixer::Mixer
   attr_accessor :text, :source_language, :target_language
   attr_writer :seperator
@@ -6,7 +7,7 @@ class LanguageMixer::Mixer
     raise("Missing 'from' language") unless source_language
     raise("Missing 'to' language") unless target_language
     raise("Missing text for translation") unless text
-    
+    # puts "Translating #{text}"
     index = 0
     available_apis.each do |api|
       api.source_language = source_language
@@ -14,12 +15,27 @@ class LanguageMixer::Mixer
     end
     # binding.pry
     prepared_text.each do |line|
-      add_text_part available_apis[index].translate(line)
-      requests[available_apis[index]] += 1
-      index += 1
-      index = 0 if index == available_apis.count
+      tries = 0
+      begin
+        if line == ''
+          add_text_part line
+        else
+          translator = available_apis.sample
+          add_text_part translator.translate(line)
+        end
+      rescue => e
+        if tries > 5
+          puts "There was a problem translating #{line}\n#{e}"
+          return false
+        end
+        tries += 1
+        retry
+      end
+      requests[translator] += 1
     end
-    text_parts.join(seperator)
+    res = text_parts.map(&:strip).join(seperator).gsub(' , ', ', ').gsub('|||', "\n")
+
+    res
   end
 
   def request_count
@@ -29,11 +45,12 @@ class LanguageMixer::Mixer
   private
 
   def seperator
-    @seperator ||= "\n"
+    @seperator ||= "."
   end
 
   def prepared_text
-    text.split(seperator)
+    text2 = text.gsub("\n", '|||')
+    text2.split(seperator)
   end
 
   def text_parts
@@ -64,7 +81,7 @@ class LanguageMixer::Mixer
         end
 
         if LanguageMixer.configuration.bing_app_token && LanguageMixer.configuration.bing_api_secret
-          available_apis << LanguageMixer::Translator::BingTranslate.new(
+          available_apis << LanguageMixer::Translator::MicrosoftTranslate.new(
             LanguageMixer.configuration.bing_app_token,
             LanguageMixer.configuration.bing_api_secret
           )

@@ -18,9 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "thor"
+
+  # Translator API Gems
   spec.add_dependency "bing_translator"
   spec.add_dependency "google-translate"
   spec.add_dependency "yandex-translator"
+
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"

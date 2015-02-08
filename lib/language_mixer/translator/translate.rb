@@ -10,6 +10,7 @@ module LanguageMixer::Translator
       raise("Missing 'from' language") unless source_language
       raise("Missing 'to' language") unless target_language
       raise("Missing text for translation") unless text
+      # puts "#{self.class.to_s} About to translate \n\t'#{text}'\n from #{source_language} to #{target_language}"
       call_translate(text)
     end
   end
